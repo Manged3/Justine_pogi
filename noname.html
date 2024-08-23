@@ -13,7 +13,7 @@
             font-family: 'Arimo', sans-serif;
             animation: backgroundAnimation 15s ease-in-out infinite;
             overflow-x: hidden;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.3s ease; /* Faster transition */
         }
 
         @keyframes backgroundAnimation {
@@ -30,7 +30,7 @@
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 1s ease-in-out;
+            animation: fadeIn 0.5s ease-in-out;
             width: 80%;
             max-width: 500px;
             margin: 2rem auto;
@@ -147,6 +147,7 @@
             align-items: center;
             justify-content: center;
             font-family: 'Arimo', sans-serif;
+            overflow-y: auto; 
         }
 
         .more-info.active {
@@ -165,6 +166,7 @@
             font-size: 20px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            z-index: 101; 
         }
 
         .close-button:hover {
@@ -341,7 +343,7 @@
                     <img src="4.jpeg" alt="Gmail">
                 </div>
                 <div class="expand-button" id="link4">
-                    <a href="mailto:Justinequilondrino17@gmail.com" class="expand-link"><span><b><h3>Justine Q.</h3></b></span></a>
+                    <a href="mailto:Justinequilondrino17@gmail.com" class="expand-link"><span><b><h3>Justinequilondrino</h3></b></span></a>
                 </div>
             </div>
         </div>
@@ -354,7 +356,7 @@
         <h2>More Info</h2>
         <p>Welcome to <b>Justine's</b> page! Here's some more information about Justine.</p><br>
         
-        <a href="about.html" class="info-button">All About Me</a>
+        <a href="2.html" class="info-button">All About Me</a>
         <a href="application.html" class="info-button">Application</a>
         <a href="gadgets.html" class="info-button">Gadgets</a>
         <a href="computer.html" class="info-button">Computer</a>
@@ -395,7 +397,7 @@
 
                 setTimeout(() => {
                     window.location.href = url; // Redirect after fade out
-                }, 500);
+                }, 200); // Faster transition duration
             });
         });
 
