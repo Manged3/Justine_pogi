@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>justien pogi . com</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
+
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
             background-color: #28282b;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Arimo', sans-serif;
             animation: backgroundAnimation 15s ease-in-out infinite;
-            overflow: hidden;
+            overflow-x: hidden;
+            transition: opacity 0.5s ease;
         }
 
         @keyframes backgroundAnimation {
@@ -26,13 +25,17 @@
         .container {
             text-align: center;
             color: white;
-            padding: 30px;
+            padding: 2rem;
             border-radius: 15px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             animation: fadeIn 1s ease-in-out;
+            width: 80%;
+            max-width: 500px;
+            margin: 2rem auto;
             position: relative;
+            top: 120px;
         }
 
         @keyframes fadeIn {
@@ -41,8 +44,9 @@
         }
 
         .round-image {
-            width: 300px;
-            height: 300px;
+            width: 60%;
+            max-width: 300px;
+            height: auto;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
@@ -63,17 +67,25 @@
 
         h1 {
             margin: 10px 0;
-            font-size: 36px;
+            font-size: 40px;
             text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
-            animation: fadeIn 2s ease-in-out;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .button-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 1rem;
             margin-top: 20px;
             position: relative;
+        }
+
+        .button-pair-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .expand-button {
@@ -122,9 +134,10 @@
             position: fixed;
             top: 0;
             left: -100%;
-            width: 350px;
+            width: 80%;
+            max-width: 350px;
             height: 100vh;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(3, 3, 0, 0.8);
             color: white;
             padding: 20px;
             transition: left 0.5s ease;
@@ -133,6 +146,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            font-family: 'Arimo', sans-serif;
         }
 
         .more-info.active {
@@ -148,7 +162,7 @@
             border: none;
             padding: 10px 20px;
             border-radius: 50px;
-            font-size: 18px;
+            font-size: 20px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
@@ -158,60 +172,38 @@
         }
 
         .more-info h2 {
-            font-size: 32px;
+            font-size: 2em;
             margin-bottom: 20px;
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+            font-weight: bold;
         }
 
-        .more-info p {
-            font-size: 20px;
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        .more-info img {
-            width: 80%;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 20px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .more-info img:hover {
-            transform: scale(1.05);
-        }
-
-        .more-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
+        .info-button {
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
             background-color: rgba(255, 255, 255, 0.2);
             color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 28px;
+            font-size: 18px;
             cursor: pointer;
+            text-align: center;
             transition: background-color 0.3s ease;
-            z-index: 101;
+            text-decoration: none; /* Remove underline from links */
         }
 
-        .more-button.disabled {
-            pointer-events: none;
-            opacity: 0.5;
-        }
-
-        .more-button:hover {
+        .info-button:hover {
             background-color: rgba(255, 255, 255, 0.4);
         }
 
         .social-media-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 1rem;
             margin-top: 20px;
             position: relative;
+            flex-wrap: wrap;
         }
 
         .social-button {
@@ -250,43 +242,122 @@
         .expand-link:hover {
             text-decoration: underline;
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 1rem;
+            }
+
+            .round-image {
+                width: 80%;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            .expand-button {
+                width: 50px;
+                height: 50px;
+                font-size: 16px;
+            }
+
+            .expand-button.expanded {
+                width: 150px;
+                height: 50px;
+            }
+
+            .more-button {
+                padding: 10px 20px;
+                font-size: 20px;
+            }
+
+            .more-info h2 {
+                font-size: 1.5em;
+            }
+
+            .info-button {
+                width: 80%;
+                font-size: 16px;
+                padding: 8px;
+            }
+        }
+
+        /* Position the more-button at the top-left corner */
+        .more-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 28px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 101;
+        }
+
+        .more-button.disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .more-button:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <img src="1724346441576.jpg" alt="Profile Picture" class="round-image">
-        <h1><i>JUSTINE AMATA</i></h1><br>
+        <h1>JUSTINE AMATA</h1><br>
 
-        <!-- Social media buttons -->
-        <div class="social-media-container">
-            <div class="social-button" data-target="link1">
-                <img src="1.jpeg" alt="YouTube">
-            </div>
-            <div class="social-button" data-target="link2">
-                <img src="2.jpeg" alt="Facebook">
-            </div>
-            <div class="social-button" data-target="link4">
-                <img src="4.jpeg" alt="Gmail">
-            </div>
-        </div>
-
-        <!-- Container for expandable buttons -->
         <div class="button-container">
-            <div class="expand-button" id="link1"><a href="https://m.youtube.com/@brojccreations" class="expand-link"><span><b><h3>BroJCcreations</h3></b></span></a></div>
-            <div class="expand-button" id="link2"><a href="https://www.facebook.com/BLEGH1756" class="expand-link"><span><b><h3>Justine Amata</h3></b></span></a></div>
-            <div class="expand-button" id="link4"><a href="mailto:someone@example.com" class="expand-link"><span><b><h3>Email Link</h3></b></span></a></div>
+            <!-- Pair each social button with its corresponding expandable button -->
+            <div class="button-pair-container">
+                <div class="social-button" data-target="link1">
+                    <img src="1.jpeg" alt="YouTube">
+                </div>
+                <div class="expand-button" id="link1">
+                    <a href="https://m.youtube.com/@brojccreations" class="expand-link"><span><b><h3>BroJCcreations</h3></b></span></a>
+                </div>
+            </div>
+
+            <div class="button-pair-container">
+                <div class="social-button" data-target="link2">
+                    <img src="2.jpeg" alt="Facebook">
+                </div>
+                <div class="expand-button" id="link2">
+                    <a href="https://www.facebook.com/BLEGH1756" class="expand-link"><span><b><h3>Justine Amata</h3></b></span></a>
+                </div>
+            </div>
+
+            <div class="button-pair-container">
+                <div class="social-button" data-target="link4">
+                    <img src="4.jpeg" alt="Gmail">
+                </div>
+                <div class="expand-button" id="link4">
+                    <a href="mailto:someone@example.com" class="expand-link"><span><b><h3>Email Link</h3></b></span></a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Top-left "..." button -->
     <button class="more-button" id="moreButton" onclick="toggleMoreInfo()">...</button>
 
-    <!-- Slide-in panel -->
     <div class="more-info" id="moreInfoPanel">
         <button class="close-button" onclick="toggleMoreInfo()">Close</button>
         <h2>More Info</h2>
-        <p>Welcome to Justine's page! Here's some more information about Justine.</p>
-        <img src="1717845820786.jpg" alt="Another Picture">
+        <p>Welcome to <b>Justine's</b> page! Here's some more information about Justine.</p><br>
+        
+        <a href="about.html" class="info-button">All About Me</a>
+        <a href="application.html" class="info-button">Application</a>
+        <a href="gadgets.html" class="info-button">Gadgets</a>
+        <a href="computer.html" class="info-button">Computer</a>
     </div>
 
     <script>
@@ -299,23 +370,37 @@
             moreButton.classList.toggle('disabled');
         }
 
-        // Function to handle the expand/collapse of buttons when a social media button is clicked
         document.querySelectorAll('.social-button').forEach(button => {
             button.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-target');
                 const targetButton = document.getElementById(targetId);
 
-                // Collapse the previously expanded button if it's not this one
                 if (expandedButton && expandedButton !== targetButton) {
                     expandedButton.classList.remove('expanded');
                 }
 
-                // Toggle the current button
                 targetButton.classList.toggle('expanded');
 
-                // Update the currently expanded button
                 expandedButton = targetButton.classList.contains('expanded') ? targetButton : null;
             });
+        });
+
+        // Transition effects for page changes
+        document.querySelectorAll('.info-button').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                const url = this.getAttribute('href');
+
+                document.body.style.opacity = 0; // Fade out current page
+
+                setTimeout(() => {
+                    window.location.href = url; // Redirect after fade out
+                }, 500);
+            });
+        });
+
+        window.addEventListener('load', () => {
+            document.body.style.opacity = 1; // Fade in page
         });
     </script>
 </body>
